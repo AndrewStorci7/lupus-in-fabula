@@ -1,0 +1,8 @@
+.main-page {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid var(--foreground);
+    border-radius: 20px;
+}

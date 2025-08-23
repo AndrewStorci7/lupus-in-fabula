@@ -1,0 +1,9 @@
+.footer {
+    font-weight: thin;
+    font-size: smaller;
+    padding: 5px 50px;
+}
+
+.footer span {
+    font-weight: 700;
+}
