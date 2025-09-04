@@ -1,0 +1,10 @@
+.relative {
+    position: relative;
+}
+
+.styled-underline {
+    position: absolute;
+    bottom: 0;
+    border: 1px solid yellow;
+    width: 100%
+}

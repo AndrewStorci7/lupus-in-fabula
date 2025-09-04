@@ -1,0 +1,90 @@
+:root {
+    --padding-card: 4px;
+    --border-card: 20px;
+    --inner-border-card: calc(var(--border-card) - var(--padding-card));
+    --outer-border-card: calc(var(--border-card) + var(--padding-card));
+}
+
+.truncate {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 90%;
+    overflow: hidden;
+}
+
+.players-list-container {
+    width: 100%;
+    height: fit-content;
+    margin: 20px 0;
+}
+
+.players-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+}
+
+.player-card-game {
+    position: relative;
+    width: 200px;
+    height: 150px;
+    border: 1px solid var(--dust-blue);
+    border-radius: var(--border-card);
+    padding: var(--padding-card);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.player {
+    border: 1px solid var(--dust-blue);
+    border-radius: var(--border-card);
+    padding: var(--padding-card) 10px;
+    margin: 5px;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.player-avatar {
+    border-radius: 100px;
+    width: 40px;
+    height: 40px;
+}
+
+.player-card-avatar {
+    width: 100%;
+    height: 70%;
+    border-radius: var(--inner-border-card);
+    margin-bottom: 5px;
+}
+
+.placeholder-avatar span {
+    font-size: large;
+    font-weight: 700;
+}
+
+.highlight::after {
+    position: absolute;
+    height: 110%;
+    width: 110%;
+    border: 2px solid var(--dust-blue);
+    border-radius: var(--outer-border-card);
+    background-color: var(--dust-blue-alpha);
+    z-index: -1;
+    content: "";
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .player-card-game {
+        width: 80px;
+        height: 80px;
+    }
+}

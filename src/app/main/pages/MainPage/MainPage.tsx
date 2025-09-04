@@ -1,17 +1,32 @@
 'use client'
-import React, { useState } from "react";
+import { NotificationPurpose, NotificationsTypes } from "@components/Notification/types";
+import React, { useCallback, useState } from "react";
+import { useNotification, useSocket } from "@providers";
 import "./style.css";
-import { useSocket } from "@providers";
 
 const MainPage = () => {
 
+    const { showNotification, hideNotification } = useNotification();
     const [roomCodeToJoin, setRoomCodeToJoin] = useState<string>('');
     const [playerName, setPlayerName] = useState<string>('');
     const { createRoom, joinRoom } = useSocket();
 
+    const showAlert = useCallback((message: React.ReactNode | string, type?: NotificationsTypes, purpose?: NotificationPurpose) => {
+        showNotification({
+            purpose: purpose || "alert",
+            title: "Attenzione",
+            message,
+            buttons: [
+                { text: "OK", type: "default", onClick: () => hideNotification() },
+            ],
+            type: type || "error",
+            duration: 3000
+        });
+    }, [showNotification, hideNotification]);
+
     const handleCreateRoom = () => {
         if (!playerName || playerName === "") {
-            alert("Devi inserire un nickname valido");
+            showAlert("Devi inserire un nickname valido", "error", "notification");
         } else {
             createRoom(playerName);
         }
@@ -19,9 +34,9 @@ const MainPage = () => {
 
     const handleJoinRoom = () => {
         if (!roomCodeToJoin || roomCodeToJoin === "") {
-            alert("Devi inserire un codice stanza valido");
+            showAlert("Devi inserire un codice stanza valido", "error", "notification");
         } else if (!playerName || playerName === "") {
-            alert("Devi inserire un nickname valido");
+            showAlert("Devi inserire un nickname valido", "error", "notification");
         } else {
             joinRoom(roomCodeToJoin, playerName);
         }

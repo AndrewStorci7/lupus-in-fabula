@@ -1,0 +1,33 @@
+:root {
+    --info-comment: #82968C;
+}
+
+.info-container-comment {
+    padding: 2px;
+    color: var(--info-comment);
+    font-size: small;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.info-icon {
+    border-radius: 100%;
+    border: 1px solid var(--info-comment);
+    height: 15px;
+    width: 15px;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.info-icon::before {
+    content: "i";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.info-icon:hover {
+    transform: rotate(45deg);
+}

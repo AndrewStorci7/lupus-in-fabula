@@ -1,0 +1,35 @@
+.sel-wolfs {
+    display: flex;
+    gap: 1rem;
+}
+
+.sel-wolfs > input {
+    max-width: 50px;
+}
+
+.role-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.role-container > .role-item {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+    border-radius: 20px;
+    padding: 2px 10px 2px 4px;
+    border: 1px solid var(--foreground);
+}
+
+.role-item > .checkbox {
+    width: 15px;
+    height: 15px;
+    border: 2px solid var(--foreground);
+    border-radius: 100%;
+}
+
+.selected {
+    background-color: var(--foreground);
+    color: var(--background);
+}
