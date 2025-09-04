@@ -1,3 +1,18 @@
+import React from "react";
+
+/**
+ * Type for Button
+ * @param onClick - The click event handler for the button
+ * @param text - The text to display on the button
+ * @param type - The type of the button (e.g., "submit", "button", "reset")
+ */
+export type Button = {
+    // onClick: Function,
+    onClick: React.MouseEventHandler<HTMLButtonElement>
+    text: string
+    type: string
+}
+
 /**
  * Type for User
  */
@@ -7,20 +22,27 @@ export type User = {
     email?: string;
 };
 
-/**
- * ## Mappa dei ruoli (key, value)
- * - Chiave (key): **nome ruolo**
- * - Valore (value): **buono**(`true`)/**cattivo**(`false`)
- */
-export const ROLES: Record<string, boolean> = { 
-    "narrator": true, 
-    "werewolf": false, 
-    "seer": true, 
-    "necromancer": true, 
-    "villager": true, 
-    "guard": true 
-} as const;
-export type Role = (typeof ROLES)[number];
+export const ROLES: string[] = [ 
+    "narrator", 
+    "werewolf", 
+    "seer",
+    "necromancer",
+    "villager",
+    "guard",
+] as const;
+
+export const EVILROLES: string[] = [
+    "werewolf"
+] as const;
+
+export const DEFAULTROLES: string[] = [
+    "narrator",
+    "werewolf",
+    "villager"
+] as const;
+
+export type Role = typeof ROLES[number];
+
 export type Character = {
     id: string;
     // name: ;
@@ -28,9 +50,6 @@ export type Character = {
     userId: User[];
     vote: number;
     alive: boolean;
-    // addVote: () => void;
-    // killUser: (user: User) => void;
-    // addUser: (user: User) => void;
 };
 
 export type GameType = {
@@ -39,5 +58,4 @@ export type GameType = {
     nWerewolves: number;
     players: Character[];
     dayCount: number;
-    // startDay: () => void;
 }

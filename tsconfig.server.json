@@ -4,9 +4,6 @@
         "outDir": "./dist/server",
         "rootDir": "./src/server",
         "noEmit": false,
-        "paths": {
-            "@models": ["./src/server/models/index.ts"],
-        }
     },
     "include": ["src/server/**/*.ts"],
 }

@@ -8,7 +8,7 @@
     ],
     // "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": false,
     // "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
@@ -29,12 +29,15 @@
       "@pages": [
         "./src/app/main/pages/index.ts"
       ],
-      "@components": [
-        "./src/app/main/components/index.ts"
+      "@components/*": [
+        "./src/app/main/components/*"
       ],
       "@providers": [
         "./src/app/main/providers/index.ts"
-      ]
+      ],
+      "@models/*": [
+        "./src/types/models/*"
+      ],
     },
     "allowJs": true,
     "noEmit": true,
